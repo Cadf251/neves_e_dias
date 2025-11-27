@@ -2,11 +2,11 @@
 
 use Cadud\Helpers\Html\LoadLayout;
 
-require "app/core/bootstrap.php";
+require "../app/core/bootstrap.php";
 
 $view = [
-  "html" => "/templates/views/home.php",
-  "title" => "Home | Neves & Dias"
+  "html" => "/templates/views/blog.php",
+  "title" => "Blog | Neves & Dias"
 ];
 
 LoadLayout::loadLayout(APP_ROOT."/templates/layouts/main.php", $view);

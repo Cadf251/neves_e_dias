@@ -12,6 +12,11 @@ $path: "../../public/img/";
   justify-content: center;
 }
 
+@mixin column{
+  display: flex;
+  flex-direction: column;
+}
+
 @mixin centered_row {
   display: flex;
   align-items: center;
@@ -19,7 +24,7 @@ $path: "../../public/img/";
 }
 
 @mixin centered_column {
-  @include centered;
+  @include centered_row;
   flex-direction: column;
 }
 
@@ -40,7 +45,7 @@ $path: "../../public/img/";
 
 // ESPAÇAMENTO
 @mixin w($input: 12){
-  width: calc((12 / $input) * 100%);
+  width: calc(($input / 12) * 100%);
 }
 
 @mixin box{
@@ -50,7 +55,7 @@ $path: "../../public/img/";
 // LAYOUT
 @mixin section($pagePadding: 5% 10%){
   @include box;
-  @include w(12);
+  width: 100vw;
   padding: $pagePadding;
 }
 
@@ -78,7 +83,6 @@ $path: "../../public/img/";
   position: $pos;
   opacity: 0;
   pointer-events: none;
-  @include box;
 }
 
 @mixin show-up--ativo{

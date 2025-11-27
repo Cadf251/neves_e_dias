@@ -1,8 +1,9 @@
 {
-    "name": "cadud/empty_project",
+    "name": "cadud/neves_e_dias",
+    "description": "website",
     "autoload": {
         "psr-4": {
-            "Cadud\\EmptyProject\\": "app/"
+            "App\\": "app/"
         }
     },
     "authors": [

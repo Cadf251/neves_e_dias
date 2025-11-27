@@ -1,0 +1,64 @@
+@use "../base/util" as *;
+
+.section{
+  @include section;
+
+  &--centered-title{
+    .titulo-2, .titulo-3 {
+      text-align: center;
+    }
+  }
+
+  &--especialidade{
+    padding: 7.5% 25%;
+  }
+
+  &--down-faixa {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: 10;
+      @include w(13);
+      height: 50px;
+      background-color: var(--second-color);
+      left: -10px;
+      bottom: 0;
+      transform: rotateZ(-1.15deg) translateY(50%);
+    }
+  }
+
+  &--white {
+    background-color: var(--off-white);
+
+    &, .titulo-3 {
+      color: var(--main-color)
+    }
+  }
+
+  &--img {
+    background-image: url("#{$path}forum.webp");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+  }
+
+}
+
+.intersection{
+  width: 100%;
+  min-height: 250px;
+  height: 40dvh;
+  background-image: url("#{$path}reuniao-escritorio.webp");
+  background-attachment: fixed;
+  background-position: 10% 20%;
+}
+
+.footer {
+  @include section;
+  @include centered_row;
+
+  &__content{
+    @include w(6);
+  }
+}

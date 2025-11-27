@@ -1,0 +1,61 @@
+@use "../base/util" as *;
+
+.main {
+  @include section(5% 10% 6% 10%);
+  @include centered_row;
+  min-height: 90dvh;
+
+  &--advogados {
+    min-height: 0;
+    padding: 8% 10%;
+  }
+
+  &__content {
+    @include box;
+    @include w(7);
+    transform: translate(7dvh, -6dvh);
+  }
+
+  &--erro{
+    .main__content{
+      @include w(6);
+      transform: translate(0,0);
+      
+      img {
+        width: 75%;
+      }
+    }
+  }
+
+  &__items {
+    @include w(5);
+    position: relative;
+    transform: translate(-7dvh, 4dvh);
+  }
+
+  &__img {
+    position: absolute;
+    width: 60%;
+    height: auto;
+    object-fit: cover;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .25);
+
+    transition: transform .4s ease, z-index .4s ease;
+
+    &--1 {
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    &--2 {
+      bottom: 0;
+      right: 0;
+      z-index: 2;
+    }
+
+    &:hover{
+      transform: scale(1.05);
+    }
+  }
+}

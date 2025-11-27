@@ -9,6 +9,7 @@ const terser = require("gulp-terser");
 const imagemin = require("gulp-imagemin");
 const webp = require("gulp-webp");
 const sourcemaps = require("gulp-sourcemaps");
+const esbuild = require("esbuild");
 
 // -------------------------
 // PATHS
@@ -17,6 +18,7 @@ const paths = {
     scss: "src/scss/**/*.scss",
     js: "src/js/**/*.js",
     img: "src/img/**/*.{jpg,jpeg,png}",
+    imgWebp: "src/img/**/*.{webp,avif,.ico}",
     distCss: "public/css/",
     distJs: "public/js/",
     distImg: "public/img/"
@@ -38,16 +40,15 @@ function buildSCSS() {
 // -------------------------
 // BUNDLE & MINIFY JS
 // -------------------------
-function buildJS() {
-    return src([
-        "src/js/main.js",
-        "src/js/modules/**/*.js"
-    ])
-        .pipe(sourcemaps.init())
-        .pipe(concat("main.min.js"))
-        .pipe(terser())
-        .pipe(sourcemaps.write("."))
-        .pipe(dest(paths.distJs));
+async function buildJS() {
+  await esbuild.build({
+    entryPoints: ["src/js/main.js"],
+    outfile: "public/js/main.min.js",
+    minify: true,
+    bundle: true,
+    format: "iife",
+    sourcemap: false
+  });
 }
 
 // -------------------------
@@ -60,12 +61,21 @@ function convertImg() {
 }
 
 // -------------------------
+// COPIA IMG QUE JÁ ESTÃO NOS FORMATOS ACEITOS
+// -------------------------
+function copyWebp() {
+  return src(paths.imgWebp)
+    .pipe(dest(paths.distImg));
+}
+
+// -------------------------
 // WATCH
 // -------------------------
 function watchFiles() {
     watch(paths.scss, buildSCSS);
     watch(paths.js, buildJS);
     watch(paths.img, convertImg);
+    watch(paths.imgWebp, copyWebp);
 }
 
 // -------------------------

@@ -1,0 +1,94 @@
+@use "../base/util" as *;
+
+.nav {
+  @include w(12);
+  @include box;
+  @include space-between;
+  padding: 25px 15%;
+  border-bottom: 0.25px solid var(--second-color);
+  z-index: 999;
+
+  &__logo {
+    transition: transform 0.5s ease;
+
+    img{
+      height: 50px;
+      width: auto;
+    }
+
+    &::after{
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 4.5px;
+      background-color: var(--main-dark);
+      border-radius: 3px;
+      transition: width 1s ease;
+      transition-delay: 0.25s;
+    }
+
+    &:hover {
+      transform: scale(1.025);
+
+      &::after{
+        width: 100%;
+      }
+    }
+  }
+
+  &__content{
+    @include vertical_centered;
+    gap: 50px
+  }
+
+  &__item {
+    &__label {
+      @include vertical_centered;
+      font-weight: 600;
+      gap: 5px;
+      padding: 6px 12px;
+      border-radius: 24px;
+      @include pointer;
+
+      &:hover{
+        background-color: var(--main-dark);
+      }
+
+      &--contato {
+        background-color: var(--second-color);
+      }
+    }
+    
+    &__down-content {
+      @include column;
+      @include show-up(absolute);
+      background-color: var(--second-color);
+      margin-top: 16px;
+      padding: 10px 25px;
+      gap: 10px;
+      z-index: 999;
+      transition: opacity 0.5s ease;
+
+      &--ativo{
+        @include show-up--ativo;
+      }
+    }
+  }
+
+  &__link{
+    &, &:visited, &:link{
+      transition: text-decoration-color 1s;
+      color: var(--off-white);
+    }
+
+    &:hover{
+      text-decoration: underline;
+    }
+    
+    &--selecionado{
+      font-weight: 600 !important;
+    }
+  }
+}

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4f8ceb19d34f091a82d2763d17469012",
+    "content-hash": "e9f4d5864fd9f7619d5aa9474f7e6e05",
     "packages": [
         {
             "name": "cadud/helpers",
