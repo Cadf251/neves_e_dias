@@ -1,7 +1,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="<?php echo $_ENV["HOST_BASE"] ?>public/img/favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="<?php echo $_ENV["HOST_BASE"] ?>public/img/favicon.webp" type="image/x-icon">
   <title><?php echo $view["title"] ?? "Paulo & Neves" ?></title>
   <?php
   if (isset($view["description"]) && !empty($view["description"])) {

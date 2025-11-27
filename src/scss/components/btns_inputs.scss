@@ -1,0 +1,111 @@
+@use "../base/util" as *;
+
+.button {
+  @include btn;
+  background: var(--second-color);
+  color: var(--white-color);
+  font-weight: 600;
+  padding: 12px 24px;
+  display: flex;
+  margin: 32px auto;
+  width: fit-content;
+  transition: box-shadow 1s ease-out;
+  overflow: hidden;
+  position: relative;
+
+  &::after {
+    content: "";
+    background: var(--third-color);
+    height: 155px;
+    left: -75px;
+    opacity: .2;
+    position: absolute;
+    top: -50px;
+    transform: rotate(35deg);
+    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    width: 50px;
+    z-index: 1;
+  }
+
+  &:hover {
+    box-shadow: 12px 12px var(--main-dark);
+    text-decoration: underline;
+    text-decoration-color: var(--second-color);
+
+    &:after {
+      left: 120%;
+      transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  }
+}
+
+.blog-search{
+  position: relative;
+  width: 75%;
+  margin: 16px auto;
+
+  &--input{
+    background: none;
+    padding: 8px 24px;
+    font-size: 1em;
+    color: var(--second-color);
+    width: 100%;
+    border-radius: 17px;
+    border: 2.4px solid var(--second-color);
+    display:block;
+    @include box;
+
+    &::placeholder {
+      color: var(--second-color);
+      opacity: 0.5;
+    }
+
+    &:focus{
+      outline: 0;
+      border-color: var(--third-color);
+    }
+  }
+
+  &--icon{
+    color: var(--second-color);
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-50%, calc(50% + 1px));
+    @include pointer;
+  }
+}
+
+.blog-sugestoes{
+  @include show-up(absolute);
+  min-width: 240px;
+  transition: opacity 0.5s ease;
+  z-index:999;
+
+  &__content{
+    position: absolute;
+    width: 240px;
+    top: 0;
+    left: 0;
+    display: grid;
+    gap: 2px;
+    padding: 16px;
+    margin: 16px;
+    background-color: var(--second-color);
+
+    p{
+      margin: 0;
+      padding: 8px 16px;
+      transition: background-color 0.5s ease;
+
+      &:hover{
+        background-color: var(--second-alt);
+        @include pointer;
+      }
+    }
+  }
+}
+
+.blog-search--input:focus~.blog-sugestoes, .blog-sugestoes:hover{
+  @include show-up--ativo;
+}

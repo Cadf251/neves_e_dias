@@ -1,5 +1,8 @@
 <?php
 
+// Dias trabalhados aqui: 26/11/2025 - ?
+// Tempo trabalhado aqui: 12h 14m
+
 use Cadud\Helpers\Html\LoadLayout;
 
 require "app/core/bootstrap.php";
