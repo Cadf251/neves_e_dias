@@ -19,7 +19,7 @@ require APP_ROOT."/templates/partials/main-hero.php";
   echo HTMLHelpers::renderButton();
   ?>
 </section>
-<section class="section section--pilares section--centered-title section--down-faixa">
+<section class="section section--pilares section--down-faixa section--centered-title">
   <h2 class="titulo-2">NOSSOS PILARES</h2>
   <h3 class="titulo-3">Os fundamentos que sustentam nossa forma única de advogar.</h3>
   <?php

@@ -21,3 +21,9 @@
 .second-color{
   color: var(--second-color);
 }
+
+@media (max-width: 768px){
+  p{
+    text-align: justify;
+  }
+}

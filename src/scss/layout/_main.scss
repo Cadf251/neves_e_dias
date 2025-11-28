@@ -78,3 +78,37 @@
     }
   }
 }
+
+@media (max-width: 1200px){
+  .main{
+    padding: 5%;
+  }
+
+  @media (max-width: 768px){
+    .main{
+      @include fix(10%);
+      height: auto;
+      min-height: 0;
+      &__content{
+        width: 100% !important;
+        transform: translate(0, 0) !important;
+      }
+
+      p{
+        text-align: justify;
+        hyphens: auto;
+      }
+
+      &__items{
+        min-height: 50vw;
+        transform: translate(0, 0);
+      }
+
+      &--simple{
+        .titulo-1{
+          text-align: center;
+        }
+      }
+    }
+  }
+}

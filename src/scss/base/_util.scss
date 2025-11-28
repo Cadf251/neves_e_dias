@@ -52,6 +52,15 @@ $path: "../../public/img/";
   box-sizing: border-box;
 }
 
+@mixin fix($padding: 5% 10%){
+  padding: $padding;
+  width: 100%;
+  flex-direction: column;
+  &>*{
+    width: 100% !important;
+  }
+}
+
 // LAYOUT
 @mixin section($pagePadding: 5% 10%){
   @include box;

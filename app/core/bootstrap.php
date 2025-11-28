@@ -10,7 +10,7 @@ $dotenv->load();
 
 session_start();
 ob_start();
-ini_set("display_errors", 1);
+ini_set("display_errors", 0);
 
 $utm_params = [
   'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', "palavra", "gclid", "fbclid"

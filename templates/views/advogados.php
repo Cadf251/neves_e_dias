@@ -3,7 +3,7 @@
 use App\data\SiteData;
 use App\helpers\HTMLHelpers;
 ?>
-<main class="main animate--to-top main--simple section--down-faixa">
+<main class="main animate--to-top section--down-faixa main--simple">
   <h1 class="titulo-1">SÓCIOS <span class="second-color">&</span> ADVOGADOS</h1>
 </main>
 

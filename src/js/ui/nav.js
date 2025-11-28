@@ -9,6 +9,10 @@ export function initNav(){
   const navLinks = nav.querySelectorAll(".js--nav-link");
   const navLinkClass= "nav__link--selecionado";
 
+  const navBar = nav.querySelector(".js--nav-bar");
+  const navContent = nav.querySelector(".js--nav-content");
+  const navContentClass = "nav__content--ativo";
+
   for(let i = 0; i < navBtns.length; i++){
     navBtns[i].addEventListener("click", (e) => {changeNavList(navLists[i].classList)});
   }
@@ -48,4 +52,11 @@ export function initNav(){
     }
     lastScrollTop = st <= 0 ? 0 : st;
   });
+
+  navBar.addEventListener("click", () => {
+    if (navContent.classList.contains(navContentClass))
+      navContent.classList.remove(navContentClass);
+    else 
+      navContent.classList.add(navContentClass);
+  })
 }

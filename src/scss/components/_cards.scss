@@ -309,3 +309,28 @@
     z-index: 1;
   }
 }
+
+@media (max-width: 768px){
+  .card-pilar{
+    width: 100%;
+    transition-delay: 0s !important;
+  }
+
+  .card-main--areas{
+    width: 50%;
+    padding: 32px 16px;
+  }
+
+  .postagem{
+    flex-direction: column;
+  }
+
+  .postagem > * {
+    width: 100%;
+    max-width: none;
+  }
+
+  .postagem__capa::after, .postagem__info::after{
+    display: none;
+  }
+}

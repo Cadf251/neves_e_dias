@@ -12,6 +12,10 @@
   background-color: var(--main-color);
   transition: transform 1s ease 0.25s;
 
+  &__bar {
+    display: none;
+  }
+
   &__logo {
     transition: transform 0.5s ease, margin 0.5s;
     max-height: 50px;
@@ -43,10 +47,15 @@
     }
   }
 
+  &__container{
+    position: relative;
+    max-height: 50px;
+  }
+
   &__content{
     @include vertical_centered;
     gap: 50px;
-    max-height: 50px;
+    height: 100%;
     transition: all 0.5s ease;
   }
 
@@ -100,10 +109,10 @@
   }
 
   &--recolhido{
-  transition: transform 1s ease 1s;
+    transition: transform 1s ease 1s;
     transform: translateY(-100%);
+    overflow: hidden;
     .nav__logo {
-      // transform: scale(1.025);
       transition: margin 0.5s 0.25s, transform 0 0.4s;
       margin-left: 50%;
       transform: translateX(-50%);
@@ -112,7 +121,7 @@
       }
     }
 
-    .nav__content{
+    .nav__content, .nav__bar{
       transition: transform 0.25s ease;
       position: absolute;
       opacity: 0;
@@ -126,9 +135,71 @@
     padding: 25px 10%;
   }
 
+  @media (max-width: 1024px){
+    .nav {
+      padding: 25px 8%;
+    }
+
+    .nav__logo img{
+      content: url("#{$path}logo-simbolo.webp");
+    }
+  }
+
   @media (max-width: 768px){
+    .nav__container{
+      max-height: none;
+    }
+    
     .nav__content{
-      display: none;
+      flex-direction: column;
+      position: absolute;
+      right: 0;
+      min-width: 200px;
+      gap: 20px;
+      background-color: var(--second-color);
+      height: auto;
+      opacity: 0;
+      padding: 15px;
+      transition: transform 0.5s, opacity 0.5s;
+      &--ativo {
+        opacity:1;
+      }
+    }
+
+    .nav__item{
+      width: 100%;
+      text-align: center;
+      
+      &__down-content{
+        min-width: 200px;
+        top: 100%;
+        padding: 15px;
+        left:0;
+      }
+    }
+
+    .nav__bar{
+      display: block;
+      position: relative;
+      width: auto;
+      min-width: 30px;
+      height: 30px;
+      margin: 8px 0;
+      background-image: url("#{$path}nav-bar.webp");
+      background-size: 100%;
+      transition: background-image 0.5s ease;
+
+      &:hover{
+        background-image: url("#{$path}nav-bar--hover.webp");
+      }
+
+      .nav--recolhido .nav__content, .nav--recolhido .nav__bar{
+        transform: translate(0, 500px);
+      }
+    }
+
+    .nav--recolhido{
+      overflow: hidden;
     }
   }
 }

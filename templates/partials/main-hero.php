@@ -1,9 +1,9 @@
-<main class="main main--hero animate--to-right
-<?php
-if(isset($main["down"]) && ($main["down"]))
-  echo " section--down-faixa ";
-?>
- js--main">
+<main class="main main--hero animate--to-right 
+  <?php
+  if(isset($main["down"]) && ($main["down"]))
+    echo " section--down-faixa ";
+  ?>
+  js--main">
   <div class="main__content">
     <h1 class="titulo-1"><?php echo $main['h1']?></h1>
     <p class="main__descricao">
