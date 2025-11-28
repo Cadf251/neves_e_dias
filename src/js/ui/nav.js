@@ -1,5 +1,6 @@
 export function initNav(){
   const nav = document.querySelector(".js--nav");
+  const navRecolhidoClass = "nav--recolhido";
   const navBtns = nav.querySelectorAll(".js--nav-btn");
   const navLists = nav.querySelectorAll(".js--nav-list");
 
@@ -10,7 +11,6 @@ export function initNav(){
 
   for(let i = 0; i < navBtns.length; i++){
     navBtns[i].addEventListener("click", (e) => {changeNavList(navLists[i].classList)});
-    console.log("Event listener added to pos "+i);
   }
 
   function resetNavList(){
@@ -20,11 +20,12 @@ export function initNav(){
   }
 
   function changeNavList(classList){
-    resetNavList();
     if(classList.contains(listShowedClass))
       classList.remove(listShowedClass);
-    else
+    else {
+      resetNavList();
       classList.add(listShowedClass);
+    }
   }
 
   navLinks.forEach(link => {
@@ -32,5 +33,19 @@ export function initNav(){
     let currentPath = window.location.pathname;
     if(linkPath === currentPath)
       link.classList.add(navLinkClass);
+  });
+
+  var lastScrollTop = 0;
+
+  window.addEventListener("scroll", function(){
+    var st = window.pageYOffset || document.documentElement.scrollTop;
+    if (st > lastScrollTop) {
+      // downscroll code
+      nav.classList.add(navRecolhidoClass);
+    } else if (st < lastScrollTop) {
+      // upscroll code
+      nav.classList.remove(navRecolhidoClass);
+    }
+    lastScrollTop = st <= 0 ? 0 : st;
   });
 }

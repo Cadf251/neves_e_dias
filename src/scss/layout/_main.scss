@@ -4,6 +4,7 @@
   @include section(5% 10% 6% 10%);
   @include centered_row;
   min-height: 90dvh;
+  max-height: 98dvh;
   max-width: 100vw;
 
   &--simple {
@@ -19,6 +20,7 @@
   &__content {
     @include box;
     @include w(7);
+    z-index: 900;
   }
 
   &--hero .main__content {
@@ -55,7 +57,9 @@
     object-fit: cover;
     box-shadow: 0 20px 40px rgba(0, 0, 0, .25);
 
-    transition: transform .4s ease, z-index .4s ease;
+    transition: 
+      transform .4s ease, 
+      z-index .4s ease;
 
     &--1 {
       top: 0;

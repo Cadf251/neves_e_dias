@@ -30,7 +30,7 @@ class HTMLHelpers
     $content = "";
     foreach ($pilares as $pilar){
       $content .= <<<HTML
-      <div class="card-pilar">
+      <div class="card-pilar animate--to-top">
         <strong class="card-pilar__title">+ {$pilar['title']}</strong>
         <p class="card-pilar__descricao">{$pilar['descricao']}</p>
       </div>
@@ -43,7 +43,7 @@ class HTMLHelpers
     $content = "";
     foreach($areas as $area){
       $content .= <<<HTML
-      <div class="card-main card-main--areas">
+      <div class="card-main animate--scale card-main--areas">
         <strong>$area</strong>
       </div>
       HTML;
@@ -69,5 +69,25 @@ class HTMLHelpers
     }
 
     return self::renderContainer($content, "container--advogados");
+  }
+
+  public static function blogCard(array $articles):string {
+    $content = "";
+    foreach ($articles as $article) {
+      $content .= <<<HTML
+      <div class="postagem animate--to-right">
+        <div class="postagem__info" style="--img: url('{$_ENV['HOST_BASE']}{$article['capa']}')">
+          <h2 class="titulo-2 titulo--bege">{$article['title']}</h2>
+          <b>Escrito em {$article['data_postagem']} por {$article['autor']}</b>
+          <p>{$article['descricao']}</p>
+          <a href="" class="button">Ler artigo completo</a>
+        </div>
+        <div class="postagem__capa">
+          <img src="{$_ENV['HOST_BASE']}{$article['capa']}" alt="Capa da postagem {$article['title']}">
+        </div>
+      </div>
+      HTML;
+    }
+    return $content;
   }
 }

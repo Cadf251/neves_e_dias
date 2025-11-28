@@ -1,4 +1,4 @@
-<main class="main main--hero
+<main class="main main--hero animate--to-right
 <?php
 if(isset($main["down"]) && ($main["down"]))
   echo " section--down-faixa ";

@@ -10,6 +10,7 @@ const imagemin = require("gulp-imagemin");
 const webp = require("gulp-webp");
 const sourcemaps = require("gulp-sourcemaps");
 const esbuild = require("esbuild");
+const browserSync = require('browser-sync').create();
 
 // -------------------------
 // PATHS
@@ -21,8 +22,26 @@ const paths = {
     imgWebp: "src/img/**/*.{webp,avif,.ico}",
     distCss: "public/css/",
     distJs: "public/js/",
-    distImg: "public/img/"
+    distImg: "public/img/",
+    php: "**/*.php"
 };
+
+// -------------------------
+// AUTO RELOADCOM BROWSER SYNC
+// -------------------------
+function serve(done) {
+  browserSync.init({
+    proxy: "http://neves-e-dias.local/",
+    open: false,
+    notify: false
+  });
+  done();
+}
+
+function reload(done) {
+  browserSync.reload();
+  done();
+}
 
 // -------------------------
 // COMPILA SCSS → CSS MINIFICADO
@@ -34,7 +53,8 @@ function buildSCSS() {
         .pipe(cleanCSS())
         .pipe(concat("main.min.css"))
         .pipe(sourcemaps.write("."))
-        .pipe(dest(paths.distCss));
+        .pipe(dest(paths.distCss))
+        .pipe(browserSync.stream());
 }
 
 // -------------------------
@@ -49,6 +69,7 @@ async function buildJS() {
     format: "iife",
     sourcemap: false
   });
+  browserSync.reload();
 }
 
 // -------------------------
@@ -72,15 +93,16 @@ function copyWebp() {
 // WATCH
 // -------------------------
 function watchFiles() {
-    watch(paths.scss, buildSCSS);
-    watch(paths.js, buildJS);
-    watch(paths.img, convertImg);
-    watch(paths.imgWebp, copyWebp);
+  watch(paths.scss, buildSCSS);
+  watch(paths.js, buildJS);
+  watch(paths.img, convertImg);
+  watch(paths.imgWebp, copyWebp);
+  watch(paths.php, reload);
 }
 
 // -------------------------
 // TASKS PÚBLICAS
 // -------------------------
-exports.dev = parallel(buildSCSS, buildJS, convertImg, watchFiles);
+exports.dev = parallel(buildSCSS, buildJS, convertImg, serve, watchFiles);
 exports.build = parallel(buildSCSS, buildJS, convertImg);
-exports.default = series(buildSCSS, buildJS, convertImg);
+exports.default = exports.dev;

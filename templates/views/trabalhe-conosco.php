@@ -1,5 +1,5 @@
 <main class="main section--img">
-  <div class="second-card">
+  <div class="second-card animate--to-top">
     <div class="second-card__content">
       <h1 class="titulo-1">TRABALHE CONOSCO</h1>
       <h2 class="titulo-3">Conheça as oportunidades de carreira nas áreas jurídica e administrativa.</h2>

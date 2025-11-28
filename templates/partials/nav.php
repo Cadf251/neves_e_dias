@@ -6,7 +6,7 @@
     <div class="nav__item">
       <div class="nav__item__label js--nav-btn">Sobre Nós <i class="fa-solid fa-sort-down"></i></div>
       <div class="nav__item__down-content js--nav-list">
-        <a class="nav__link js--nav-link" href="<?php echo $_ENV['HOST_BASE'] ?>">Quem somos</a>
+        <a class="nav__link js--nav-link" href="<?php // echo $_ENV['HOST_BASE'] ?>/">Quem somos</a>
         <a class="nav__link js--nav-link" href="<?php echo $_ENV['HOST_BASE'] ?>areas-de-atuacao">Áreas de atuação</a>
         <a class="nav__link js--nav-link" href="<?php echo $_ENV['HOST_BASE'] ?>socios-e-advogados">Advogados</a>
       </div>

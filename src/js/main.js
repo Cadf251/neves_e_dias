@@ -1,6 +1,7 @@
-import "./ui/nav.js";
 import { initNav } from "./ui/nav.js";
+import { initAnimations } from "./ui/animations.js";
+import { initParallax } from "./ui/parallax.js";
 
-console.log("Sheet loaded");
-  console.log("Window loaded");
-  initNav();
+initNav();
+initAnimations();
+initParallax();

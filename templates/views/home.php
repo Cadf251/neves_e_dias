@@ -10,10 +10,8 @@ $main = [
 
 require APP_ROOT."/templates/partials/main-hero.php";
 ?>
-<section class="intersection">
-  intersection
-</section>
-<section class="section section--sobre">
+<section class="intersection js--intersetion"></section>
+<section class="section section--sobre animate--to-top">
   <h2 class="titulo-2">Muito além da advocacia tradicional. Um parceiro jurídico estratégico</h2>
   <h3 class="titulo-3">Atuação moderna, proativa e orientada a resultados.</h3>
   <p>Unimos a expertise em diversas áreas do Direito para oferecer uma perspectiva estratégica. Nosso compromisso é antecipar necessidades, propor soluções eficientes e construir caminhos jurídicos sólidos, com apoio de tecnologia e soluções modernas, como inteligência artificial.</p>
@@ -29,7 +27,7 @@ require APP_ROOT."/templates/partials/main-hero.php";
   echo HTMLHelpers::renderCardContainerPilar($pilares);
   ?>
 </section>
-<section class="section section--white section--centered-title section--especialidade">
+<section class="section section--white section--centered-title animate--to-top section--especialidade">
   <h3 class="titulo-3">Nossas</h3>
   <h2 class="titulo-2">ÁREAS DE ESPECIALIDADE</h2>
   <p>Nosso escritório é <b>full service</b>, trabalhamos com uma visão 360º sobre as suas questões jurídicas, garantindo soluções completas, robustas e condizente com o cenário atual.</p>

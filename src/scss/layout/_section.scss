@@ -41,6 +41,12 @@
     background-image: url("#{$path}forum.webp");
     background-repeat: no-repeat;
     background-size: 100% auto;
+    transition: background-size 0.5s ease !important;
+    background-position-x: 50%;
+
+    &:hover{
+      background-size: 102% auto;
+    }
   }
 
   &--postagens{
@@ -55,6 +61,12 @@
   background-image: url("#{$path}reuniao-escritorio.webp");
   background-attachment: fixed;
   background-position: 10% 20%;
+  background-size: 100% auto;
+  transition: background-size 0.5s;
+
+  &:hover{
+    background-size: 101% auto;
+  }
 }
 
 .footer {
@@ -84,7 +96,11 @@
     gap: 16px;
     
     &,&>*:visited,&>*:link{
-      color: var(--white-color)
+      color: var(--white-color);
+
+      &:hover{
+        color: var(--second-color);
+      }
     }
   }
 
@@ -96,6 +112,10 @@
 
     &>*,&>*:link,&>*:visited{
       color: var(--second-color);
+
+      &:hover{
+        color: var(--third-color);
+      }
     }
   }
 

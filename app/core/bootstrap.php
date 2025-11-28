@@ -22,6 +22,6 @@ foreach ($utm_params as $utm) {
   }
 }
 
-if ($_SERVER["HTTP_HOST"] === "localhost"){
+if ($_SERVER["HTTP_HOST"] === "neves-e-dias.local"){
   $_ENV["HOST_BASE"] = $_ENV["LOCALHOST"];
 }

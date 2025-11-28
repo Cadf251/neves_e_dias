@@ -4,12 +4,17 @@
   @include w(12);
   @include box;
   @include space-between;
+  position: sticky;
+  top: 0;
   padding: 25px 15%;
   border-bottom: 0.25px solid var(--second-color);
   z-index: 999;
+  background-color: var(--main-color);
+  transition: transform 1s ease 0.25s;
 
   &__logo {
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease, margin 0.5s;
+    max-height: 50px;
 
     img{
       height: 50px;
@@ -40,7 +45,9 @@
 
   &__content{
     @include vertical_centered;
-    gap: 50px
+    gap: 50px;
+    max-height: 50px;
+    transition: all 0.5s ease;
   }
 
   &__item {
@@ -89,6 +96,39 @@
     
     &--selecionado{
       font-weight: 600 !important;
+    }
+  }
+
+  &--recolhido{
+  transition: transform 1s ease 1s;
+    transform: translateY(-100%);
+    .nav__logo {
+      // transform: scale(1.025);
+      transition: margin 0.5s 0.25s, transform 0 0.4s;
+      margin-left: 50%;
+      transform: translateX(-50%);
+      &::after{
+        width: 100%;
+      }
+    }
+
+    .nav__content{
+      transition: transform 0.25s ease;
+      position: absolute;
+      opacity: 0;
+      transform: translateX(500px);
+    }
+  }
+}
+
+@media (max-width: 1200px){
+  .nav{
+    padding: 25px 10%;
+  }
+
+  @media (max-width: 768px){
+    .nav__content{
+      display: none;
     }
   }
 }
