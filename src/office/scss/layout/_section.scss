@@ -91,10 +91,6 @@
     background-position: 10% 20%;
     background-size: 100% auto;
     transition: background-size 0.5s;
-
-    &:hover {
-      background-size: 101% auto;
-    }
   }
 
   @include bp-down(md) {

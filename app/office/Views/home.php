@@ -20,9 +20,9 @@ Layouts::renderComponent('main-hero', [
   </div>
   <?php Layouts::renderUi("button") ?>
 </section>
-<section class="section section--white section--centered-title animate--to-top section--especialidade">
-  <h3 class="titulo-3">Nossas</h3>
-  <h2 class="titulo-2">ÁREAS DE ESPECIALIDADE</h2>
-  <p>Nosso escritório é <b>full service</b>, trabalhamos com uma visão 360º sobre as suas questões jurídicas, garantindo soluções completas, robustas e condizente com o cenário atual.</p>
-  <a href="<?= Assets::base("areas-de-atuacao") ?>" class="button" aria-label="Acesse nossa página Áreas de Atuação">Confira Áreas de Atuação</a>
+<section class="section section--white section--centered-title section--especialidade">
+  <h3 class="titulo-3 animate--to-top">Nossas</h3>
+  <h2 class="titulo-2 animate--to-top">ÁREAS DE ESPECIALIDADE</h2>
+  <p class="animate--to-top">Nosso escritório é <b>full service</b>, trabalhamos com uma visão 360º sobre as suas questões jurídicas, garantindo soluções completas, robustas e condizente com o cenário atual.</p>
+  <a href="<?= Assets::base("areas-de-atuacao") ?>" class="button animate--to-top" aria-label="Acesse nossa página Áreas de Atuação">Confira Áreas de Atuação</a>
 </section>

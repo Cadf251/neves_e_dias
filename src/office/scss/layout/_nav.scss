@@ -85,6 +85,11 @@
         }
       }
 
+      // Dropdown aberto: o chevron vira para cima
+      &:has(.nav__item__down-content--ativo) .nav__chevron {
+        rotate: 180deg;
+      }
+
       &__down-content {
         @include column;
         @include show-up(absolute);
@@ -101,6 +106,18 @@
           @include show-up--ativo;
         }
       }
+    }
+
+    &__chevron {
+      flex-shrink: 0;
+      width: 0.75em;
+      height: 0.5em;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: rotate 0.3s var(--ease-standard);
     }
 
     &__link {
