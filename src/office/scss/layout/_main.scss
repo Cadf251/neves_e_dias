@@ -10,6 +10,11 @@
     &--simple {
       padding-block: 8%;
       flex-direction: column;
+      text-align: center;
+
+      .titulo-3 {
+        max-width: var(--measure-subtitle);
+      }
 
       img {
         width: 25%;
@@ -20,19 +25,22 @@
       z-index: 900;
     }
 
-    // Hero: texto (7) + composição de imagens (5)
+    // Hero: texto + composição de imagens
     &--hero {
       display: grid;
-      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+      grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
       align-items: center;
-
-      .main__content {
-        transform: translate(7dvh, -6dvh);
-      }
+      gap: var(--space-7);
     }
 
+    // Blog: bloco de abertura centralizado
     &--blog .main__content {
       @include w(8);
+      text-align: center;
+
+      .main__descricao {
+        margin-inline: auto;
+      }
     }
 
     &--erro .main__content {
@@ -43,14 +51,24 @@
       }
     }
 
+    // Caixa com proporção fixa onde as duas fotos se sobrepõem
     &__items {
       position: relative;
-      transform: translate(-7dvh, 4dvh);
+      aspect-ratio: 1 / 0.9;
+
+      // Moldura fina dourada atrás das fotos
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 12% 6% 6% 14%;
+        border: 1px solid var(--color-rule);
+      }
     }
 
     &__img {
       position: absolute;
-      width: 60%;
+      width: 66%;
+      aspect-ratio: 4 / 3;
       height: auto;
       object-fit: cover;
       box-shadow: 0 20px 40px rgba(0, 0, 0, .25);
@@ -96,22 +114,8 @@
         grid-template-columns: minmax(0, 1fr);
       }
 
-      .main__content {
-        transform: none;
-      }
-
       &--blog.section--down-faixa::after {
         display: none;
-      }
-
-      p {
-        text-align: justify;
-        hyphens: auto;
-      }
-
-      &__items {
-        min-height: 50vw;
-        transform: none;
       }
 
       &--simple .titulo-1 {

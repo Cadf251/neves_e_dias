@@ -3,8 +3,8 @@
 use App\office\Helpers\OfficeLayouts as Layouts;
 
 Layouts::renderComponent('main-hero', [
-  "h1" => "Nossas Áreas de Especialização",
-  "description" => "Nosso escritório é <b>full service</b>, trabalhamos com uma visão 360º sobre as suas questões jurídicas, garantindo soluções completas, robustas e condizente com o cenário atual.",
+  "h1" => "Áreas de atuação em Direito Empresarial <span class=\"second-color\">e</span> Tributário",
+  "description" => "Contencioso, tributário, imobiliário, fusões e aquisições, penal empresarial e mais: atendimento jurídico completo para empresas e pessoas em São Paulo.",
   "down" => true
 ]); ?>
 

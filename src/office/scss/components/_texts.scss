@@ -1,21 +1,53 @@
 @use "../base/util" as *;
 
 @layer components {
+  // Títulos em serifa de display
+  .titulo-1,
+  .titulo-2 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    line-height: var(--leading-tight);
+    letter-spacing: -0.01em;
+    margin-block: 0 0.4em;
+
+    // O "&" (e outros destaques) ganha o itálico da serifa
+    .second-color {
+      font-style: italic;
+      font-weight: 500;
+    }
+  }
+
   .titulo-1 {
-    font-size: 1.85em;
-    font-weight: 600;
+    font-size: var(--step-5);
   }
 
   .titulo-2 {
-    font-size: 1.5em;
-    font-weight: 600;
+    font-size: var(--step-4);
   }
 
+  // Linha de apoio (subtítulo) — sans, mais leve
   .titulo-3 {
-    font-size: 1.25em;
+    font-family: var(--font-body);
+    font-size: var(--step-1);
     font-weight: 400;
+    line-height: var(--leading-snug);
+    margin-block: 0 1.25em;
     // Seções podem trocar a cor via --titulo-3-color (ex.: .section--white)
     color: var(--titulo-3-color, var(--color-accent));
+  }
+
+  // Quando vem antes do título, vira "eyebrow" (rótulo em caixa alta)
+  .titulo-3:has(+ .titulo-2, + .titulo-1) {
+    font-size: var(--step--1);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-caps);
+    margin-block-end: 0.9em;
+  }
+
+  // Títulos do rodapé em escala menor
+  .footer .titulo-1 {
+    font-size: var(--step-3);
   }
 
   .titulo--bege,
@@ -23,9 +55,28 @@
     color: var(--color-accent);
   }
 
-  @include bp-down(md) {
-    p {
-      text-align: justify;
-    }
+  // Títulos de seção com largura limitada (quebra mais equilibrada)
+  .section > .titulo-2 {
+    max-width: var(--measure-title);
+  }
+
+  .section > .titulo-3 {
+    max-width: var(--measure-subtitle);
+  }
+
+  .section--centered-title > :is(.titulo-2, .titulo-3) {
+    margin-inline: auto;
+  }
+
+  // Parágrafos com largura de leitura confortável
+  .section > p,
+  .main__content > p,
+  .second-card p {
+    max-width: var(--measure);
+  }
+
+  .section--centered-title > p {
+    margin-inline: auto;
+    text-align: center;
   }
 }

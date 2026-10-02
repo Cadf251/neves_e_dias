@@ -4,8 +4,8 @@ use App\office\Helpers\OfficeLayouts;
 
 ?>
 <main class="main animate--to-top section--down-faixa main--simple">
-  <h2 class="titulo-1">SÓCIOS <span class="second-color">&</span> ADVOGADOS</h2>
-  <h1 class="titulo-3">Profissionais com atuação estratégica, ética e foco total na solução jurídica mais segura para cada cliente.</h1>
+  <h1 class="titulo-1">Advogados <span class="second-color">&</span> sócios</h1>
+  <p class="titulo-3">Equipe de advogados especialistas em Direito Empresarial, Imobiliário, Tributário e do Trabalho em São Paulo.</p>
 </main>
 
 <section class="section section--img">

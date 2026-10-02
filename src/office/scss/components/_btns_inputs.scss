@@ -1,42 +1,45 @@
 @use "../base/util" as *;
 
 @layer components {
+  // Um único efeito: o brilho que atravessa o botão no hover
   .button {
-    @include btn;
-    background: var(--color-accent);
-    color: var(--color-text-on-accent);
-    font-weight: 600;
-    padding: 12px 24px;
+    @include btn(var(--step--1));
     display: flex;
-    margin: var(--space-5) auto;
+    align-items: center;
     width: fit-content;
-    transition: box-shadow 1s ease-out;
+    margin: var(--space-5) auto;
+    padding: 1.05em 2.2em;
+    background: var(--color-accent);
+    color: var(--color-bg-deep);
+    font-family: var(--font-body);
+    font-weight: 600;
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    line-height: 1;
+    border-radius: 1px;
     overflow: hidden;
     position: relative;
 
     &::after {
       content: "";
-      background: var(--color-highlight);
-      height: 155px;
-      left: -75px;
-      opacity: .2;
       position: absolute;
-      top: -50px;
-      transform: rotate(35deg);
-      transition: all 550ms var(--ease-out-expo);
-      width: 50px;
-      z-index: 1;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--color-highlight) 55%, transparent), transparent);
+      transform: rotate(20deg);
+      transition: left 700ms var(--ease-out-expo);
     }
 
-    &:hover {
-      box-shadow: 12px 12px var(--color-bg-deep);
-      text-decoration: underline;
-      text-decoration-color: var(--color-accent);
-
-      &::after {
-        left: 120%;
-      }
+    &:hover::after {
+      left: 130%;
     }
+  }
+
+  // Em blocos de texto alinhados à esquerda, o botão acompanha o texto
+  :is(.main--hero .main__content, .postagem__info, .second-card__content, .section:not(.section--centered-title)) > .button {
+    margin-inline: 0;
   }
 
   .blog-search {
@@ -51,8 +54,8 @@
       padding: var(--space-2) var(--space-4);
       font-size: 1em;
       color: var(--color-accent);
-      border-radius: 17px;
-      border: 2.4px solid var(--color-accent);
+      border-radius: 999px;
+      border: 1px solid var(--color-rule-strong);
 
       &::placeholder {
         color: var(--color-accent);

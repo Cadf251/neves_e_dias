@@ -13,6 +13,15 @@
 
     &--down-faixa {
       position: relative;
+      // A seção inteira fica acima da seguinte. Sem isso, quando ela tem
+      // transform (classes animate--*), a próxima seção cobre a metade de baixo da faixa
+      z-index: 1;
+
+      // Duas seções com faixa em sequência (ex.: blog): a de cima vence
+      &:has(+ .section--down-faixa) {
+        z-index: 2;
+      }
+
       // Corta a faixa só na horizontal: ela continua invadindo a seção de baixo
       overflow-x: clip;
 
@@ -23,7 +32,9 @@
         left: -5%;
         right: -5%;
         bottom: 0;
-        height: 50px;
+        // Cresce com a tela para cobrir sempre o desvio da inclinação nas pontas
+        // (tan 1.15° × meia largura ≈ 1.1vw < metade da altura)
+        height: max(50px, 3.5vw);
         background-color: var(--color-accent);
         transform: rotateZ(-1.15deg) translateY(50%);
       }
@@ -36,7 +47,10 @@
     }
 
     &--img {
-      background-image: url("#{$path}forum.webp");
+      // Véu navy sobre a foto para dar leitura aos títulos
+      background-image:
+        linear-gradient(color-mix(in srgb, var(--color-bg-deep) 62%, transparent), color-mix(in srgb, var(--color-bg-deep) 62%, transparent)),
+        url("#{$path}forum.webp");
       background-repeat: no-repeat;
       background-size: 100% auto;
       background-position-x: 50%;
@@ -93,6 +107,8 @@
 
   .footer {
     @include section(0, 0);
+    background-color: var(--color-bg-deep);
+    border-top: 1px solid var(--color-rule);
 
     &__content {
       &--top {

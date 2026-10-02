@@ -4,26 +4,21 @@ use App\core\Assets;
 use App\office\Helpers\OfficeLayouts as Layouts;
 
 Layouts::renderComponent('main-hero', [
-  "h1" => "Estratégia Jurídica Integrada para Segurança e Vantagem Real.",
-  "description" => "Atuamos como parceiros estratégicos dos nossos clientes — unindo experiência, inovação e visão multidisciplinar para transformar desafios em soluções concretas."
+  "h1" => "Escritório de advocacia empresarial em <span class=\"second-color\">São Paulo</span>",
+  "description" => "Advocacia <b>full service</b> para empresas e pessoas: consultoria, contencioso e planejamento jurídico em um só escritório."
 ]);
 
 ?>
 
 <section class="intersection js--intersetion"></section>
 
-<section class="section section--sobre animate--to-top">
+<section class="section section--sobre section--down-faixa animate--to-top">
   <h2 class="titulo-2">Muito além da advocacia tradicional. Um parceiro jurídico estratégico</h2>
-  <h3 class="titulo-3">Atuação moderna, proativa e orientada a resultados.</h3>
-  <p>Unimos a expertise em diversas áreas do Direito para oferecer uma perspectiva estratégica. Nosso compromisso é antecipar necessidades, propor soluções eficientes e construir caminhos jurídicos sólidos, com apoio de tecnologia e soluções modernas, como inteligência artificial.</p>
-  <?php Layouts::renderUi("button") ?>
-</section>
-<section class="section section--pilares section--down-faixa section--centered-title">
-  <h2 class="titulo-2">NOSSOS PILARES</h2>
-  <h3 class="titulo-3">Os fundamentos que sustentam nossa forma única de advogar.</h3>
+  <h3 class="titulo-3">Os fundamentos que sustentam nossa forma única de advogar</h3>
   <div class="container">
     <?php Layouts::renderManyUi('card-pilar', siteData("office", "pilares")) ?>
   </div>
+  <?php Layouts::renderUi("button") ?>
 </section>
 <section class="section section--white section--centered-title animate--to-top section--especialidade">
   <h3 class="titulo-3">Nossas</h3>

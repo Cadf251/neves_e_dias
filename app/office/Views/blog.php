@@ -1,7 +1,7 @@
 <main class="main main--blog section--down-faixa js--main">
   <div class="main__content animate--to-top">
-    <h1 class="titulo-1">Insights e Estratégias para o Cenário Jurídico Atual</h1>
-    <p class="main__descricao">Conteúdos produzidos com profundidade, clareza e visão estratégica — conectando diferentes áreas do Direito para orientar empresas e pessoas na tomada de decisões mais seguras e eficientes.</p>
+    <h1 class="titulo-1">Blog jurídico sobre <span class="second-color">Direito Empresarial</span></h1>
+    <p class="main__descricao">Análises e orientações práticas sobre direito empresarial, tributário, imobiliário e trabalhista.</p>
     <div class="blog-search">
       <input type="text" class="blog-search--input" placeholder="Pesquise algum conteúdo...">
       <div class="blog-sugestoes">
