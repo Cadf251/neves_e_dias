@@ -1,0 +1,104 @@
+@use "../base/util" as *;
+
+.card {
+  display: flex;
+  padding: 8px 12px;
+  align-items: center;
+  gap: 16px;
+  border-radius: 8px;
+  font-family: var(--font-secondary);
+  font-size: 0.9em;
+  position: relative;
+  transition: all .5s ease;
+
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &--main {
+    background-color: var(--color-gray-1000-overlay);
+    color: var(--color-white-1000-surface);
+    border: 1.2px solid var(--color-gray-1000-overlay);
+
+    &:hover {
+      box-shadow: 0 0 12px var(--color-gray-1000-overlay);
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &--problem {
+    padding: 16px;
+    color: var(--color-white-1000-surface);
+    background: color-mix(in srgb,
+        var(--color-gray-1000) var(--op-overlay),
+        var(--color-black-900));
+
+    &::selection {
+      color: var(--color-golden);
+    }
+
+    &:hover {
+      background: var(--color-black-900);
+    }
+  }
+
+  &--diferencial {
+    display: flex;
+    align-items: stretch;
+    padding: 24px;
+    flex-direction: column;
+    background-color: var(--color-gray-1000-overlay);
+
+    strong {
+      color: var(--color-white-1000);
+    }
+  }
+}
+
+svg {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.svg-container {
+  border-radius: 50%;
+  padding: 16px;
+  aspect-ratio: 1;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.firma-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+
+  strong {
+    color: var(--color-white-1000);
+  }
+}
+
+@media (max-width: $mobile) {
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .svg-container {
+    height: 24px;
+    width: 24px;
+    padding: 8px;
+  }
+}

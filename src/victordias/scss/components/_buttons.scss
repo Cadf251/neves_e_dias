@@ -1,0 +1,55 @@
+.button {
+  background-color: var(--color-golden);
+  padding: 12px 24px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-white-1000);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 4px 4px 15px 0 var(--color-gray-1000-soft);
+  font-weight: bold;
+  font-family: var(--font-secondary);
+  font-size: 0.8em;
+  display: flex;
+  width: fit-content;
+  cursor: pointer;
+  transition: all .5s ease;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    box-shadow: 4px 4px 15px var(--color-black-1000);
+
+    &:after {
+      left: 120%;
+      transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  }
+
+  &:focus {
+    animation: push-button 1s;
+  }
+
+  &::after {
+    content: "";
+    background: var(--color-white-800);
+    height: 155px;
+    left: -75px;
+    opacity: .2;
+    position: absolute;
+    top: -50px;
+    transform: rotate(35deg);
+    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    width: 50px;
+    z-index: 1;
+  }
+
+  @keyframes push-button {
+    from {
+      transform: translateY(2px);
+    } to {
+      transform: translateY(0);
+    }
+  }
+}

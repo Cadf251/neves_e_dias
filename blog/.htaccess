@@ -1,0 +1,10 @@
+RewriteEngine On
+Options -Indexes
+
+# =========================
+# REWRITE PRINCIPAL (SEMPRE DEPOIS DOS TESTES)
+# =========================
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^([^/]+)/?$ single.php?slug=$1 [L,QSA]

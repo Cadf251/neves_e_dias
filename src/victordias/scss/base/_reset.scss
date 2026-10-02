@@ -1,0 +1,69 @@
+html {
+  background-color: var(--color-white);
+  font-family: var(--font-primary);
+  font-size: clamp(16px, 1.3vw, 20px);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  
+  &::selection {
+    color: var(--color-black-1000-overlay);
+    background-color: #0000004e;
+    text-shadow: none;
+  }
+}
+
+body {
+  margin: 0;
+
+  &.is-frozen {
+    overflow: hidden;
+
+    & > *:not(.overlay) {
+      filter: blur(3px);
+    }
+    
+    &::after {
+      content: "";
+      background: var(--color-black-1000);
+      opacity: .75;
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      inset: 0;
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+b,
+span,
+strong,
+textarea,
+form,
+address,
+input {
+  font-size: 1em;
+}
+
+a,
+br,
+button,
+input,
+img {
+  user-select: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.5s ease;
+}

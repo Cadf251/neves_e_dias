@@ -1,0 +1,122 @@
+@use "../base/util" as *;
+
+@layer layout {
+  .main {
+    @include centered_row;
+    width: 100%;
+    min-height: 98dvh;
+    padding: calc(var(--nav-height) + 5%) var(--page-gutter) 6%;
+
+    &--simple {
+      padding-block: 8%;
+      flex-direction: column;
+
+      img {
+        width: 25%;
+      }
+    }
+
+    &__content {
+      z-index: 900;
+    }
+
+    // Hero: texto (7) + composição de imagens (5)
+    &--hero {
+      display: grid;
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+      align-items: center;
+
+      .main__content {
+        transform: translate(7dvh, -6dvh);
+      }
+    }
+
+    &--blog .main__content {
+      @include w(8);
+    }
+
+    &--erro .main__content {
+      @include w(6);
+
+      img {
+        width: 75%;
+      }
+    }
+
+    &__items {
+      position: relative;
+      transform: translate(-7dvh, 4dvh);
+    }
+
+    &__img {
+      position: absolute;
+      width: 60%;
+      height: auto;
+      object-fit: cover;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, .25);
+      transition:
+        transform .4s ease,
+        z-index .4s ease;
+
+      &--1 {
+        top: 0;
+        left: 0;
+        z-index: 1;
+      }
+
+      &--2 {
+        bottom: 0;
+        right: 0;
+        z-index: 2;
+      }
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  @include bp-down(md) {
+    .main {
+      flex-direction: column;
+
+      // O hero continua ocupando a tela inteira no mobile
+      &:not(.main--hero) {
+        min-height: 0;
+      }
+      padding: calc(var(--nav-height) + 10%) var(--page-gutter) 10%;
+
+      > *,
+      .main__content,
+      &--simple img {
+        width: 100%;
+      }
+
+      &--hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .main__content {
+        transform: none;
+      }
+
+      &--blog.section--down-faixa::after {
+        display: none;
+      }
+
+      p {
+        text-align: justify;
+        hyphens: auto;
+      }
+
+      &__items {
+        min-height: 50vw;
+        transform: none;
+      }
+
+      &--simple .titulo-1 {
+        text-align: center;
+      }
+    }
+  }
+}

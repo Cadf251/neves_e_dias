@@ -1,0 +1,88 @@
+@use "sass:map";
+
+$path: "../img/";
+
+// -------------------------
+// BREAKPOINTS
+// -------------------------
+$breakpoints: (
+  md: 768px,
+  lg: 1024px,
+  xl: 1200px,
+  xxl: 1440px
+);
+
+// Até o breakpoint (inclusive): @include bp-down(md) { ... }
+@mixin bp-down($bp) {
+  @media (width <= #{map.get($breakpoints, $bp)}) {
+    @content;
+  }
+}
+
+// Acima do breakpoint: @include bp-up(md) { ... }
+@mixin bp-up($bp) {
+  @media (width > #{map.get($breakpoints, $bp)}) {
+    @content;
+  }
+}
+
+// -------------------------
+// ALINHAMENTO
+// -------------------------
+@mixin vertical_centered {
+  display: flex;
+  align-items: center;
+}
+
+@mixin column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin centered_row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+// Largura em colunas de 12
+@mixin w($input: 12) {
+  width: calc(($input / 12) * 100%);
+}
+
+// -------------------------
+// LAYOUT
+// -------------------------
+@mixin section($pad-y: var(--section-pad-y), $pad-x: var(--page-gutter)) {
+  width: 100%;
+  padding: $pad-y $pad-x;
+}
+
+// -------------------------
+// COMPONENTES
+// -------------------------
+@mixin pointer {
+  cursor: pointer;
+}
+
+@mixin btn($font-size: 1em, $border: none) {
+  border: $border;
+  font-size: $font-size;
+  @include pointer;
+}
+
+@mixin show-up($pos: fixed) {
+  position: $pos;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@mixin show-up--ativo {
+  pointer-events: all;
+  opacity: 1;
+}

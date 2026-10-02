@@ -14,10 +14,10 @@ RewriteRule ^templates/ - [F,L]
 # =========================
 # REWRITE PRINCIPAL (SEMPRE DEPOIS DOS TESTES)
 # =========================
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-l
-RewriteRule ^([a-zA-Z0-9_-]+)/?$ pages/$1.php [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
 
 # =========================
 # BLOQUEIO DE ARQUIVOS
@@ -56,6 +56,23 @@ RewriteRule ^([a-zA-Z0-9_-]+)/?$ pages/$1.php [L]
 # =========================
 # PÁGINAS DE ERRO PERSONALIZADAS
 # =========================
-ErrorDocument 403 /projetos/Paulo%20Neves/neves_e_dias/erros/403.php
-ErrorDocument 404 /projetos/Paulo%20Neves/neves_e_dias/erros/404.php
-ErrorDocument 500 /projetos/Paulo%20Neves/neves_e_dias/erros/500.php
+ErrorDocument 403 /index.php?error=403
+ErrorDocument 404 /index.php?error=404
+ErrorDocument 500 /index.php?error=500
+
+# =========================
+# CACHE DE IMAGENS E FONTES
+# =========================
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png  "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>

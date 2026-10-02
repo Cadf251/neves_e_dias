@@ -1,0 +1,31 @@
+@use "../base/util" as *;
+
+@layer components {
+  .titulo-1 {
+    font-size: 1.85em;
+    font-weight: 600;
+  }
+
+  .titulo-2 {
+    font-size: 1.5em;
+    font-weight: 600;
+  }
+
+  .titulo-3 {
+    font-size: 1.25em;
+    font-weight: 400;
+    // Seções podem trocar a cor via --titulo-3-color (ex.: .section--white)
+    color: var(--titulo-3-color, var(--color-accent));
+  }
+
+  .titulo--bege,
+  .second-color {
+    color: var(--color-accent);
+  }
+
+  @include bp-down(md) {
+    p {
+      text-align: justify;
+    }
+  }
+}

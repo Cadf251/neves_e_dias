@@ -1,0 +1,87 @@
+$pathFontawesome: "../fonts/fontawesome/";
+
+@font-face {
+  font-family: "Font Awesome 7 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("#{$pathFontawesome}fa-solid-900.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Font Awesome 7 Free";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("#{$pathFontawesome}fa-brands-400.woff2") format("woff2");
+}
+
+@layer base {
+  .fa-solid,
+  .fa-brands{
+    font-family: "Font Awesome 7 Free", system-ui;
+    font-feature-settings: normal;
+    font-style: normal;
+    font-synthesis: none;
+    font-variant: normal;
+    font-weight: var(--fa-style, 900);
+    line-height: 1;
+    text-align: center;
+    text-rendering: auto;
+  }
+
+  .fa-solid{
+    --fa-style: 900;
+  }
+
+  .fa-brands{
+    --fa-style: 400;
+  }
+
+  :is(.fas,
+  .far,
+  .fab,
+  .fa-solid,
+  .fa-regular,
+  .fa-brands,
+  .fa-classic,
+  .fa)::before {
+    content: var(--fa)/"";
+  }
+
+  .fa-sort-down {
+    --fa: "\f0dd";
+  }
+
+  .fa-square-instagram {
+    --fa: "\e055";
+  }
+
+  .fa-whatsapp {
+    --fa: "\f232";
+  }
+
+  .fa-phone {
+    --fa: "\f095";
+  }
+
+  .fa-envelope {
+    --fa: "\f0e0";
+  }
+
+  .fa-square-facebook {
+    --fa: "\f082";
+  }
+
+  .fa-linkedin {
+    --fa: "\f08c";
+  }
+
+  .fa-blog {
+    --fa: "\f781";
+  }
+
+  .fa-magnifying-glass {
+    --fa: "\f002";
+  }
+}

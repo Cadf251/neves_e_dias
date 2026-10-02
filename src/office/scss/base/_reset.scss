@@ -1,0 +1,65 @@
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: clamp(16px, 1.3vw, 20px);
+  }
+
+  *::selection {
+    color: var(--color-accent);
+    background-color: var(--color-selection-bg);
+    text-shadow: none;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  img,
+  iframe {
+    max-width: 100%;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  b,
+  span,
+  strong,
+  textarea,
+  form,
+  input {
+    font-size: 1em;
+  }
+
+  a,
+  br,
+  button,
+  input,
+  img {
+    user-select: none;
+  }
+
+  a {
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.5s ease;
+  }
+
+  b,
+  strong {
+    font-weight: 600;
+  }
+}

@@ -1,0 +1,49 @@
+:root {
+  /* Tokens de opacidade */
+  --op-surface: 80%;
+  --op-overlay: 75%;
+  --op-mid: 50%;
+  --op-soft: 25%;
+  --op-ghost: 10%;
+
+  /* Cores da marca */
+  --color-main: #101B2B;
+  --color-main-surface: color-mix(in srgb, var(--color-main) var(--op-surface), #0000);
+  --color-main-overlay: color-mix(in srgb, var(--color-main) var(--op-overlay), #0000);
+  --color-main-soft: color-mix(in srgb, var(--color-main) var(--op-soft), #0000);
+
+  --color-golden: #C79E64;
+  --color-golden-overlay: color-mix(in srgb, var(--color-golden) var(--op-overlay), #0000);
+  --color-golden-soft: color-mix(in srgb, var(--color-golden) var(--op-soft), #0000);
+
+  --color-golden-hover: #a27e4b;
+
+  /* Gradientes */
+  --dark-section-linear: linear-gradient(270deg, var(--color-main-overlay), #0000);
+
+  /* Escala neutra */
+  --color-black-1000 : #030213;
+  --color-black-1000-overlay: color-mix(in srgb, var(--color-black-1000) var(--op-overlay), #0000);
+  --color-black-1000-soft: color-mix(in srgb, var(--color-black-1000) var(--op-soft), #0000);
+  --color-black-900: #1F1F1F;
+
+  --color-white-1000: #fff;
+  --color-white-1000-surface: color-mix(in srgb, var(--color-white-1000) var(--op-surface), #0000);
+
+  --color-white-900: #F3F3F5;
+  --color-white-800: #ECECF0;
+  --color-white-800-soft: color-mix(in srgb, var(--color-white-800) var(--op-soft), #0000);
+
+  --color-gray-1000: #414A58;
+  --color-gray-1000-overlay: color-mix(in srgb, var(--color-gray-1000) var(--op-overlay), #0000);
+  --color-gray-1000-soft: color-mix(in srgb, var(--color-gray-1000) var(--op-soft), #0000);
+  --color-gray-1000-ghost: color-mix(in srgb, var(--color-gray-1000) var(--op-ghost), #0000);
+
+  /* Complementares / Componentes */
+  --color-green: #00C950;
+  --color-red: #f22;
+  
+  /* Fontes */
+  --font-primary: "montserrat", system-ui, sans-serif;
+  --font-secondary: "arial", system-ui, sans-serif;
+}

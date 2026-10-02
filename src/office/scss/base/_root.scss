@@ -1,0 +1,75 @@
+@layer base {
+  :root {
+    // -------------------------
+    // PALETA (valores brutos — não usar direto nos componentes)
+    // -------------------------
+    --navy-900: #0a111b;
+    --navy-800: #101B2B;
+    --gold-500: #C79E64;
+    --gold-400: #ceb172;
+    --cream-300: #dccb8d;
+    --cream-100: #F7EECD;
+    --white: #fff;
+    --off-white: #f2f2f1;
+    --black: #000;
+
+    // -------------------------
+    // CORES SEMÂNTICAS
+    // -------------------------
+    --color-bg: var(--navy-800);
+    --color-bg-deep: var(--navy-900);
+    --color-surface-light: var(--off-white);
+
+    --color-text: var(--off-white);
+    --color-text-inverse: var(--navy-800);
+    --color-text-inverse-deep: var(--navy-900);
+    --color-text-on-accent: var(--white);
+
+    --color-accent: var(--gold-500);
+    --color-accent-soft: var(--gold-400);
+    --color-highlight: var(--cream-100);
+    --color-highlight-soft: var(--cream-300);
+
+    --color-overlay: #0006;
+    --color-selection-bg: #0000006e;
+    --color-success: #13bc37;
+    --color-danger: #f00;
+
+    // -------------------------
+    // TIPOGRAFIA
+    // -------------------------
+    --font-body: "Montserrat", system-ui, sans-serif;
+
+    // -------------------------
+    // ESPAÇAMENTO
+    // -------------------------
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 1rem;
+    --space-4: 1.5rem;
+    --space-5: 2rem;
+    --space-6: clamp(2rem, 1.25rem + 2.5vw, 3.5rem);
+    --space-7: clamp(3rem, 1.5rem + 4vw, 6rem);
+    --space-8: clamp(4rem, 2rem + 6vw, 9rem);
+
+    // Respiro interno dos cards
+    --space-card: clamp(1rem, 2.5vw, 2.5rem);
+
+    // Respiro lateral das páginas e vertical das seções
+    --page-gutter: clamp(1.25rem, 10vw, 16rem);
+    --section-pad-y: clamp(2.5rem, 6vw, 7rem);
+
+    // Altura da nav fixa (usada para compensar o topo das páginas)
+    --nav-height: 100px;
+
+    // -------------------------
+    // FORMAS E MOVIMENTO
+    // -------------------------
+    --radius-sm: 3px;
+    --radius-md: 16px;
+    --radius-pill: 24px;
+
+    --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+    --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}

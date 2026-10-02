@@ -1,0 +1,30 @@
+.nav {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px 4% 16px 4%;
+  align-items: flex-start;
+  background: var(--color-black-1000);
+  justify-content: space-between;
+  font-size: 0.875rem;
+  align-items: center;
+
+  &__empresa {
+    display: flex;
+    gap: 16px;
+
+    img {
+      height: 50px;
+      width:auto;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    gap: 16px;
+  }
+
+  .text-container {
+    gap: 8px;
+  }
+}

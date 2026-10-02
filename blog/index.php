@@ -1,12 +1,15 @@
 <?php
 
+use App\office\Controllers\OfficeController;
 use Cadud\Helpers\Html\LoadLayout;
 
 require "../app/core/bootstrap.php";
 
-$view = [
-  "html" => "/templates/views/blog.php",
-  "title" => "Blog | Neves & Dias"
-];
+// $view = [
+//   "html" => "/templates/views/blog.php",
+//   "title" => "Blog | Neves & Dias"
+// ];
 
-LoadLayout::loadLayout(APP_ROOT."/templates/layouts/main.php", $view);
+// LoadLayout::loadLayout(APP_ROOT."/templates/layouts/main.php", $view);
+
+OfficeController::blog();
